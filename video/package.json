@@ -1,0 +1,42 @@
+{
+  "name": "vertical-video-studio",
+  "version": "1.0.0",
+  "description": "Prompt-driven Arabic and multilingual animated videos with Remotion",
+  "repository": {},
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "private": true,
+  "dependencies": {
+    "@remotion/cli": "4.0.538",
+    "@remotion/fonts": "4.0.538",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.538"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.538",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "10.12.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio --no-open",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc",
+    "typecheck": "tsc --noEmit",
+    "render": "remotion render src/index.ts ArabicVertical out/arabic-vertical.mp4 --codec=h264 --pixel-format=yuv420p --concurrency=2",
+    "still": "remotion still src/index.ts ArabicVertical out/preview.png --frame=60",
+    "render:horizontal": "remotion render src/index.ts ArabicHorizontal out/arabic-horizontal.mp4 --codec=h264 --pixel-format=yuv420p --concurrency=2",
+    "generate": "node scripts/generate.ts",
+    "test": "node --test scripts/prompt.test.ts"
+  },
+  "allowScripts": {
+    "esbuild": false
+  },
+  "type": "module"
+}
